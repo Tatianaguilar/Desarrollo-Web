@@ -4,79 +4,249 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia de Baile Ritmo y Folklore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos CSS3 Personalizados */
+        :root {
+            --color-primario: #721c24;
+            --color-secundario: #f8f9fa;
+            --color-acento: #e67e22;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcf8f2;
+            color: #333;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(114, 28, 36, 0.85), rgba(0, 0, 0, 0.7)), url('zuleta.jpeg') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+        }
+
+        .navbar-brand img {
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));
+        }
+
+        .section-title {
+            color: var(--color-primario);
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-acento);
+        }
+
+        .text-center.section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background-color: #212529;
+            color: #ccc;
+        }
+
+        /* Media Query obligatoria para optimizar tipografía en pantallas pequeñas */
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Academia de Baile "Ritmo y Folklore"</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="logotipo.jpeg" alt="Logotipo Academia" width="40" height="40" class="d-inline-block align-text-top me-2 rounded-circle">
+                    <span>Ritmo y Folklore</span>
+                </a>
+                <button class="navbar-dark navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios y Talleres</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#video">Galería Multimedia</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#quienes-somos">Quiénes Somos</a></li>
-            <li><a href="#servicios">Servicios o Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
     <main>
-
-        <section id="inicio">
-            <h2>Bienvenidos a nuestra Institución</h2>
-            <p>Descubre el arte, la pasión y la tradición a través del movimiento. En nuestra academia salvaguardamos las raíces culturales de nuestra tierra mediante la danza folklórica nacional e internacional.</p>
-            <img src="logotipo.jpeg" alt="Logotipo de la Academia Ritmo y Folklore" width="200">
+        
+        <section id="inicio" class="hero-section text-center d-flex align-items-center">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-3">Bienvenidos a nuestra Institución</h1>
+                <p class="lead mb-4">Descubre el arte, la pasión y la tradición a través del movimiento. En nuestra academia salvaguardamos las raíces culturales de nuestra tierra mediante la danza folklórica nacional e internacional.</p>
+                <a href="#contacto" class="btn btn-warning btn-lg fw-bold text-white px-4 py-2">Inscríbete Ahora</a>
+            </div>
         </section>
 
-        <section id="quienes-somos">
-            <h2>Quiénes Somos</h2>
-            <p>La Academia de Baile Ritmo y Folklore es una institución artística y cultural dedicada a la formación integral de bailarines en el ámbito de las danzas tradicionales. Nuestro proyecto nació con el firme propósito de rescatar, preservar y difundir la riqueza de nuestra identidad folklórica, ofreciendo un espacio donde niños, jóvenes y adultos pueden desarrollar sus habilidades dancísticas, rítmicas y corporales. A lo largo de nuestra trayectoria, nos hemos consolidado como un referente cultural en la región, participando activamente en festivales, pregones y talleres formativos. Creemos firmemente que la danza es una herramienta de transformación social que fortalece los valores humanos, la disciplina y el orgullo por nuestras raíces ancestrales.</p>
+        <div class="container my-5 py-4">
             
-            <img src="zuleta.jpeg" alt="Presentación de la Danza de Zuleta por Ritmo y Folklore" width="600">
-        </section>
+            <section id="quienes-somos" class="mb-5 bg-white p-4 rounded shadow-sm">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <h2 class="section-title">Quiénes Somos</h2>
+                        <p class="text-justify lead-sm">
+                            La Academia de Baile Ritmo y Folklore es una institución artística y cultural dedicada a la formación integral de bailarines en el ámbito de las danzas tradicionales. Nuestro proyecto nació con el firme propósito de rescatar, preservar y difundir la riqueza de nuestra identidad folklórica, ofreciendo un espacio donde niños, jóvenes y adultos pueden desarrollar sus habilidades dancísticas, rítmicas y corporales. A lo largo de nuestra trayectoria, nos hemos consolidado como un referente cultural en la región, participando activamente en festivales, pregones y talleres formativos. Creemos firmemente que la danza es una herramienta de transformación social que fortalece los valores humanos, la disciplina y el orgullo por nuestras raíces ancestrales.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img src="zuleta.jpeg" alt="Presentación de la Danza de Zuleta por Ritmo y Folklore" class="img-fluid rounded shadow" style="max-height: 350px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </section>
 
-        <section id="servicios">
-            <h2>Nuestros Servicios y Talleres</h2>
-            <ul>
-                <li>Cursos permanentes de danza folklórica tradicional.</li>
-                <li>Cursos vacacionales de expresión dancística y ritmo.</li>
-                <li>Contrataciones para pregones de fiestas y eventos culturales.</li>
-                <li>Montajes coreográficos para presentaciones institucionales.</li>
-            </ul>
-        </section>
+            <section id="servicios" class="mb-5">
+                <h2 class="section-title text-center">Nuestros Servicios y Talleres</h2>
+                <div class="row g-4">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 text-danger mb-2">🎭</div>
+                                <h5 class="card-title fw-bold">Cursos Permanentes</h5>
+                                <p class="card-text text-muted small">Clases continuas de danza folklórica tradicional para todas las edades.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 text-warning mb-2">☀️</div>
+                                <h5 class="card-title fw-bold">Vacacionales</h5>
+                                <p class="card-text text-muted small">Talleres intensivos de expresión dancística, ritmo y coordinación corporal.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 text-success mb-2">🎉</div>
+                                <h5 class="card-title fw-bold">Contrataciones</h5>
+                                <p class="card-text text-muted small">Presentaciones artísticas coreográficas para pregones de fiestas y eventos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <div class="fs-1 text-primary mb-2">🗺️</div>
+                                <h5 class="card-title fw-bold">Montajes</h5>
+                                <p class="card-text text-muted small">Diseño y producción de coreografías exclusivas para instituciones públicas o privadas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section id="video-institucional">
-            <h2>Video de Danza Tradicional</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/uEn8H7zJMVg?si=8KqZu48M4068j-qf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p><strong>Correo Electrónico:</strong> borrallos16@gmail.com</p>
-            <p><strong>Teléfono:</strong> 0980023594</p>
-            <p><strong>Direcciones de atención:</strong></p>
-            <ul>
-                <li>Barrio La Merced, Parroquia de San Roque, Cantón Antonio Ante.</li>
-                <li>Barrio La Delicia, Parroquia de San Roque, Cantón Antonio Ante.</li>
-            </ul>
-            <p><strong>Nuestras Redes Sociales:</strong></p>
-            <ul>
-                <li><a href="https://www.facebook.com/share/1EHmXkVems/" target="_blank">Facebook Oficial</a></li>
-                <li><a href="https://www.tiktok.com/@baileritmoyfolklore?_r=1&_t=ZS-97FKGY6Pl48" target="_blank">TikTok Oficial</a></li>
-            </ul>
-        </section>
+            <section id="video" class="mb-5 bg-white p-4 rounded shadow-sm text-center">
+                <h2 class="section-title text-center">Video de Danza Tradicional</h2>
+                <div class="ratio ratio-16x9 mx-auto" style="max-width: 700px;">
+                    <iframe src="https://www.youtube.com/embed/uEn8H7zJMVg?si=8KqZu48M4068j-qf" title="YouTube video player" allowfullscreen></iframe>
+                </div>
+            </section>
 
+            <section id="contacto" class="mb-4">
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="bg-white p-4 rounded shadow-sm h-100">
+                            <h3 class="h4 mb-3 fw-bold text-dark">Envíanos un Mensaje</h3>
+                            <form action="#">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label small fw-bold">Nombre Completo</label>
+                                    <input type="text" id="nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label small fw-bold">Correo Electrónico</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Ej. juan@correo.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="asunto" class="form-label small fw-bold">Asunto</label>
+                                    <input type="text" id="asunto" class="form-control" placeholder="Ej. Inscripción curso vacacional" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label small fw-bold">Mensaje o Consulta</label>
+                                    <textarea id="mensaje" rows="4" class="form-control" placeholder="Escribe tus dudas aquí..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-danger w-100 fw-bold">Enviar Formulario</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="bg-dark text-white p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <h3 class="h4 mb-4 fw-bold text-warning">Datos de Contacto</h3>
+                                <p class="mb-2"><strong>📧 Correo Electrónico:</strong> <br>borrallos16@gmail.com</p>
+                                <p class="mb-2"><strong>📞 Teléfono:</strong> <br>0980023594</p>
+                                <hr class="bg-secondary">
+                                <h4 class="h6 fw-bold text-warning mb-2">Direcciones de atención:</h4>
+                                <ul class="ps-3 small text-light">
+                                    <li class="mb-2">Barrio La Merced, Parroquia de San Roque, Cantón Antonio Ante.</li>
+                                    <li>Barrio La Delicia, Parroquia de San Roque, Cantón Antonio Ante.</li>
+                                </ul>
+                            </div>
+                            <div class="mt-4">
+                                <a href="mailto:borrallos16@gmail.com" class="btn btn-outline-warning btn-sm w-100 mb-2">Escribir por Correo</a>
+                                <a href="https://maps.google.com" target="_blank" class="btn btn-outline-light btn-sm w-100">Ver Ubicación en Mapa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </main>
 
-    <aside>
-        <h3>Información Relevante</h3>
-        <p><strong>Horarios de Cursos:</strong><br>Consulta la disponibilidad de horarios según el grupo de edad (niños, jóvenes o adultos).</p>
-        <p><em>¡Aprovecha nuestros cursos vacacionales de temporada! Cupos limitados para el aprendizaje de ritmos tradicionales.</em></p>
+    <aside class="bg-secondary text-white text-center py-3">
+        <div class="container">
+            <small class="fw-medium">📢 ¡Inscripciones abiertas para el nuevo periodo! Cupos limitados por taller.</small>
+        </div>
     </aside>
 
-    <footer>
-        <p>Desarrollado por: <strong>Tatiana Aguilar</strong></p>
-        <p>Asignatura: Desarrollo de Aplicaciones Web</p>
-        <p>Año: 2026</p>
+    <footer class="text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0 small">&copy; 2026 Academia de Baile Ritmo y Folklore. Todos los derechos reservados.</p>
+            <p class="mb-0 text-muted extra-small" style="font-size: 0.75rem;">Desarrollado para la Universidad Estatal Amazónica</p>
+        </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
