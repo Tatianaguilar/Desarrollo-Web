@@ -113,7 +113,7 @@
         <section id="inicio" class="hero-section text-center d-flex align-items-center">
             <div class="container">
                 <h1 class="display-4 fw-bold mb-3">Bienvenidos a nuestra Institución</h1>
-                <p class="lead mb-4">Descubre el arte, la pasión y la tradición a través del movimiento. En nuestra academia salvaguardamos las raíces culturales de nuestra tierra mediante la danza folklórica nacional e internacional.</p>
+                <p class="lead mb-4">Descubre el arte, la pasión y la tradición a través del movement. En nuestra academia salvaguardamos las raíces culturales de nuestra tierra mediante la danza folklórica nacional e internacional.</p>
                 <a href="#contacto" class="btn btn-warning btn-lg fw-bold text-white px-4 py-2">Inscríbete Ahora</a>
             </div>
         </section>
@@ -125,7 +125,7 @@
                     <div class="col-md-6 mb-4 mb-md-0">
                         <h2 class="section-title">Quiénes Somos</h2>
                         <p class="text-justify lead-sm">
-                            La Academia de Baile Ritmo y Folklore es una institución artística y cultural dedicada a la formación integral de bailarines en el ámbito de las danzas tradicionales. Nuestro proyecto nació con el firme propósito de rescatar, preservar y difundir la riqueza de nuestra identidad folklórica, ofreciendo un espacio donde niños, jóvenes y adultos pueden desarrollar sus habilidades dancísticas, rítmicas y corporales. A lo largo de nuestra trayectoria, nos hemos consolidado como un referente cultural en la región, participando activamente en festivales, pregones y talleres formativos. Creemos firmemente que la danza es una herramienta de transformación social que fortalece los valores humanos, la disciplina y el orgullo por nuestras raíces ancestrales.
+                            La Academia de Baile Ritmo y Folklore es una institución artística y cultural dedicada a la formación integral de bailarines en el ámbito de las danzas tradicionales. Nuestro proyecto nació con el firme propósito de rescatar, preservar y difundir la riqueza de nuestra identity folklórica, ofreciendo un espacio donde niños, jóvenes y adultos pueden desarrollar sus habilidades dancísticas, rítmicas y corporales. A lo largo de nuestra trayectoria, nos hemos consolidado como un referente cultural en la región, participando activamente en festivals, pregones y talleres formativos. Creemos firmemente que la danza es una herramienta de transformación social que fortalece los valores humanos, la disciplina y el orgullo por nuestras raíces ancestrales.
                         </p>
                     </div>
                     <div class="col-md-6 text-center">
@@ -183,6 +183,56 @@
                 </div>
             </section>
 
+            <section id="registro-estudiantes" class="mb-5 bg-white p-4 rounded shadow-sm">
+                <h2 class="section-title text-center">Bolsa de Solicitudes y Registro de Alumnos</h2>
+                <p class="text-center text-muted mb-4">Módulo interactivo para registrar solicitudes de nuevos estudiantes de manera interna sin recargar la página.</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-5">
+                        <div class="p-3 border rounded bg-light">
+                            <h4 class="h5 mb-3 fw-bold text-dark">Registrar Nueva Solicitud</h4>
+                            
+                            <div id="alerta-formulario" class="alert d-none" role="alert"></div>
+
+                            <form id="form-registro-interno">
+                                <div class="mb-3">
+                                    <label for="reg-nombre" class="form-label small fw-bold">Nombre del Postulante</label>
+                                    <input type="text" id="reg-nombre" class="form-control" placeholder="Ej. Carlos Tipán">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="reg-categoria" class="form-label small fw-bold">Categoría de Taller</label>
+                                    <select id="reg-categoria" class="form-select">
+                                        <option value="" selected disabled>Seleccione una opción...</option>
+                                        <option value="Cursos Permanentes">Cursos Permanentes</option>
+                                        <option value="Vacacionales">Vacacionales</option>
+                                        <option value="Montajes Coreográficos">Montajes Coreográficos</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="reg-descripcion" class="form-label small fw-bold">Observación / Descripción</label>
+                                    <textarea id="reg-descripcion" rows="3" class="form-control" placeholder="Ej. Nivel principiante, requiere horario vespertino."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 fw-bold">Agregar a la Lista</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="p-3 border rounded h-100 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="h5 m-0 fw-bold text-dark">Lista de Espera Activa</h4>
+                                <span id="contador-registros" class="badge bg-danger p-2 fs-6">Total registros: 0</span>
+                            </div>
+                            
+                            <div id="contenedor-registros" class="row g-2 overflow-y-auto" style="max-height: 320px;">
+                                <div id="mensaje-vacio" class="col-12 text-center text-muted my-4">
+                                    <p class="mb-0 small">No hay solicitudes ingresadas en este momento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section id="contacto" class="mb-4">
                 <div class="row g-4">
                     <div class="col-lg-7">
@@ -242,11 +292,12 @@
 
     <footer class="text-center py-3 mt-auto">
         <div class="container">
-            <p class="mb-0 small">&copy; 2026 Academia de Baile Ritmo y Folklore. Todos los derechos reservados.</p>
+            <p class="mb-0 small">© 2026 Academia de Baile Ritmo y Folklore. Todos los derechos reservados.</p>
             <p class="mb-0 text-muted extra-small" style="font-size: 0.75rem;">Desarrollado para la Universidad Estatal Amazónica</p>
         </div>
-    </footer>
+    </footer >
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
