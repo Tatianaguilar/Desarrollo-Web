@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniciar Sesión | Ritmo y Folklore</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #7b1e1e, #d4a017);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 18px;
+            padding: 40px 35px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #7b1e1e;
+            margin-bottom: 8px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #d4a017;
+            box-shadow: 0 0 0 2px rgba(212, 160, 23, 0.15);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #7b1e1e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background: #5d1515;
+        }
+
+        .mensaje {
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background: #f8d7da;
+            color: #842029;
+            font-size: 14px;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 22px;
+            color: #7b1e1e;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .volver:hover {
+            text-decoration: underline;
+        }
+
+        .footer-login {
+            margin-top: 25px;
+            color: #777;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <img
+                src="{{ url_for('static', filename='logotipo.jpeg') }}"
+                alt="Ritmo y Folklore"
+                class="logo"
+            >
+
+            <h1>Ritmo y Folklore</h1>
+
+            <p class="subtitle">
+                Acceso al sistema administrativo
+            </p>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="mensaje">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+
+                <div class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input
+                        type="text"
+                        id="usuario"
+                        name="usuario"
+                        placeholder="Ingrese su usuario"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Ingrese su contraseña"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn-login">
+                    Iniciar Sesión
+                </button>
+
+            </form>
+
+            <a href="{{ url_for('index') }}" class="volver">
+                ← Volver al inicio
+            </a>
+
+            <div class="footer-login">
+                Academia de Baile Ritmo y Folklore © 2026
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 import os
 import sqlite3
-from flask import Flask, render_template, request, redirect, url_for, flash
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Length, Email
@@ -18,23 +19,114 @@ app.config['SECRET_KEY'] = 'clave_secreta_ritmo_y_folklore_2026'
 DB_PATH = os.path.join(os.path.dirname(__file__), 'data', 'academia.db')
 
 def init_db():
-    """Crea la carpeta data y la tabla de solicitudes en SQLite si no existen."""
+    """Prepara las tablas principales de la Academia Ritmo y Folklore."""
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
+
+    # Activar las relaciones entre tablas
+    cursor.execute("PRAGMA foreign_keys = ON")
+
+    # ==========================================
+    # TABLA 1: USUARIOS
+    # ==========================================
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS usuarios (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT NOT NULL,
+            usuario TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL,
+            email TEXT,
+            telefono TEXT,
+            categoria TEXT,
+            rol TEXT NOT NULL DEFAULT 'alumno'
+        )
+    ''')
+
+    # ==========================================
+    # TABLA 2: SOLICITUDES
+    # ==========================================
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS solicitudes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT NOT NULL,
             categoria TEXT NOT NULL,
-            descripcion TEXT NOT NULL
+            descripcion TEXT NOT NULL,
+            usuario_id INTEGER,
+            FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
         )
     ''')
+
+    # ==========================================
+    # TABLA 3: HORARIOS
+    # ==========================================
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS horarios (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            categoria TEXT NOT NULL,
+            dia TEXT NOT NULL,
+            hora_inicio TEXT NOT NULL,
+            hora_fin TEXT NOT NULL,
+            cupos INTEGER NOT NULL DEFAULT 20
+        )
+    ''')
+
+    # ==========================================
+    # COMPATIBILIDAD CON LA TABLA EXISTENTE
+    # ==========================================
+    cursor.execute("PRAGMA table_info(solicitudes)")
+    columnas = [columna[1] for columna in cursor.fetchall()]
+
+    if 'usuario_id' not in columnas:
+        cursor.execute('''
+            ALTER TABLE solicitudes
+            ADD COLUMN usuario_id INTEGER
+        ''')
+
     conn.commit()
     conn.close()
-
-# Inicializar la base de datos al arrancar
+    # Inicializar la base de datos al arrancar
 init_db()
+    # ==========================================
+# USUARIO ADMINISTRADOR
+# ==========================================
+def crear_usuario_admin():
+    """Crea el usuario administrador si todavía no existe."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT id FROM usuarios WHERE usuario = ?",
+        ("admin",)
+    )
+
+    usuario_existente = cursor.fetchone()
+
+    if usuario_existente is None:
+        password_hash = generate_password_hash("admin123")
+
+        cursor.execute('''
+            INSERT INTO usuarios
+            (nombre, usuario, password, email, telefono, categoria, rol)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            "Administrador",
+            "admin",
+            password_hash,
+            "admin@ritmoyfolklore.com",
+            "",
+            "",
+            "admin"
+        ))
+
+        conn.commit()
+
+    conn.close()
+
+
+# Crear administrador automáticamente
+crear_usuario_admin()
 
 # ==========================================
 # SEMANA 11: Definición de Formularios Flask-WTF
@@ -77,8 +169,69 @@ servicios_db = [
 # ==========================================
 # SEMANA 9, 11 & 12: Rutas y Métodos GET/POST con SQLite
 # ==========================================
+# ==========================================
+# LOGIN DEL SISTEMA
+# ==========================================
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+
+    if request.method == 'POST':
+        usuario = request.form.get('usuario')
+        password = request.form.get('password')
+
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+
+        cursor.execute(
+            '''
+            SELECT id, nombre, usuario, password, rol
+            FROM usuarios
+            WHERE usuario = ?
+            ''',
+            (usuario,)
+        )
+
+        usuario_db = cursor.fetchone()
+        conn.close()
+
+        if usuario_db and check_password_hash(usuario_db[3], password):
+
+            session['usuario_id'] = usuario_db[0]
+            session['nombre_usuario'] = usuario_db[1]
+            session['usuario'] = usuario_db[2]
+            session['rol'] = usuario_db[4]
+
+            flash('¡Bienvenido al sistema, ' + usuario_db[1] + '!', 'success')
+
+            return redirect(url_for('index'))
+
+        flash('Usuario o contraseña incorrectos.', 'danger')
+
+    return render_template('login.html')
+
+
+# ==========================================
+# CERRAR SESIÓN
+# ==========================================
+@app.route('/logout')
+def logout():
+
+    session.clear()
+
+    flash('Sesión cerrada correctamente.', 'info')
+
+    return redirect(url_for('login'))
+
+
+# ==========================================
+# SEMANA 9, 11 & 12: Rutas y Métodos GET/POST con SQLite
+# ==========================================
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    # Verificar que el usuario haya iniciado sesión
+    if 'usuario_id' not in session:
+        return redirect(url_for('login'))
+
     form_reg = SolicitudForm()
     form_contacto = ContactoForm()
 
@@ -126,6 +279,19 @@ def index():
         servicios=servicios_db,
         total_registros=len(solicitudes_db)
     )
+# ==========================================
+# RUTAS DE ACCIONES: Eliminar Registro de SQLite
+# ==========================================
+@app.route('/eliminar/<int:id_solicitud>', methods=['POST'])
+def eliminar_solicitud(id_solicitud):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM solicitudes WHERE id = ?", (id_solicitud,))
+    conn.commit()
+    conn.close()
+
+    flash('¡Solicitud eliminada con éxito!', 'warning')
+    return redirect(url_for('index') + '#registro-estudiantes')
 
 if __name__ == '__main__':
     app.run(debug=True)

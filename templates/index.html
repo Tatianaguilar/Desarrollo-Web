@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia de Baile Ritmo y Folklore</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
         :root {
             --color-primario: #721c24;
             --color-secundario: #f8f9fa;
@@ -59,11 +60,410 @@
             .hero-section p { font-size: 1rem; }
             .container { padding-left: 20px; padding-right: 20px; }
         }
+        /* Fondo gris oscuro general para toda la página */
+body {
+    background-color: #212529 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Ajuste general para que las secciones se integren sin cuadros encajonados */
+section, .container-fluid {
+    background-color: transparent !important;
+}
+
+/* Estilo para las tarjetas flotantes en tono gris medio */
+.card-dark-floating {
+    background-color: #2b3035 !important; /* Tono gris un poco más claro que el fondo */
+    border: 1px solid #3a3f44 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important; /* Sombra de elevación */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-dark-floating:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
+}
+/* Corrección de color de texto para legibilidad en Modo Oscuro */
+p, .text-muted, .card-text {
+    color: #e0e0e0 !important; /* Texto claro totalmente legible */
+}
+
+/* Títulos en rojo vibrante / corporativo */
+.titulo-rojo-vibrante {
+    color: #ff3344 !important; /* Rojo vivo y llamativo sobre fondo oscuro */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Tarjeta flotante gris estilo comentarios */
+.card-quienes-somos {
+    background-color: #2b3035 !important;
+    border: 1px solid #3a3f44 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+}
+/* Ajuste de insignias de cargo para legibilidad completa */
+.badge-cargo {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    white-space: normal !important; /* Permite salto de línea para que no se corte */
+    line-height: 1.3;
+    display: block;
+    width: 100%;
+}
+
+.badge-director {
+    background-color: rgba(255, 51, 68, 0.25) !important;
+    color: #ff8591 !important; /* Rojo claro y brillante */
+    border: 1px solid rgba(255, 51, 68, 0.5);
+}
+
+.badge-instructor {
+    background-color: rgba(255, 193, 7, 0.25) !important;
+    color: #ffe082 !important; /* Amarillo brillante */
+    border: 1px solid rgba(255, 193, 7, 0.5);
+}
+
+.badge-infantil {
+    background-color: rgba(32, 201, 151, 0.25) !important;
+    color: #80e5ce !important; /* Verde menta brillante */
+    border: 1px solid rgba(32, 201, 151, 0.5);
+}
+/* ========================================== */
+/* SECCIÓN INSTRUCTORES CORREGIDA */
+/* ========================================== */
+
+.card-instructor {
+    background-color: #2b3035 !important;
+    border: 1px solid #3a3f44 !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card-instructor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Control estricto del tamaño de imagen */
+.img-instructor-container {
+    overflow: hidden;
+    height: 240px;
+    width: 100%;
+}
+
+.img-instructor-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%; /* Subirá el encuadre para mostrar la cara más arriba */
+    display: block;
+}
+
+/* Nombres */
+.nombre-instructor {
+    color: #ffffff !important;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* Insignias con ajuste de texto perfecto */
+.badge-cargo {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    white-space: normal !important;
+    word-wrap: break-word;
+    line-height: 1.3;
+    display: block;
+    width: 100%;
+}
+
+.badge-director {
+    background-color: rgba(255, 51, 68, 0.25) !important;
+    color: #ff8591 !important;
+    border: 1px solid rgba(255, 51, 68, 0.5);
+}
+
+.badge-instructor {
+    background-color: rgba(255, 193, 7, 0.25) !important;
+    color: #ffe082 !important;
+    border: 1px solid rgba(255, 193, 7, 0.5);
+}
+
+.badge-infantil {
+    background-color: rgba(32, 201, 151, 0.25) !important;
+    color: #80e5ce !important;
+    border: 1px solid rgba(32, 201, 151, 0.5);
+    .img-pos-adriana
+}
+/* ========================================== */
+/* SECCIÓN AGRUPACIONES / CARRUSELES FLOTANTES */
+/* ========================================== */
+
+/* Tarjeta contenedora flotante plomo oscuro */
+.card-agrupacion {
+    background-color: #2b3035 !important;
+    border: 1px solid #3a3f44 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-agrupacion:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Títulos de Categoría en la tarjeta */
+.titulo-categoria {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+/* Marco estricto y adaptativo para las imágenes del carrusel */
+.carousel-agrupacion .carousel-item {
+    height: 420px; /* Altura ideal y uniforme */
+    background-color: #1a1d20;
+}
+
+.carousel-agrupacion .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    object-position: center 25%; /* Encuadra mejor los rostros y trajes */
+}
+
+/* Botones e indicadores del carrusel estilizados */
+.carousel-agrupacion .carousel-control-prev-icon,
+.carousel-agrupacion .carousel-control-next-icon {
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.8));
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.carousel-agrupacion .carousel-indicators [data-bs-target] {
+    height: 4px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    opacity: 0.5;
+}
+
+.carousel-agrupacion .carousel-indicators .active {
+    opacity: 1;
+    background-color: #ff3344;
+}
+/* ====================================================== */
+/* ESTILOS UNIFICADOS: SECCIÓN VIDEOS Y ENSAYOS (TIKTOK) */
+/* ====================================================== */
+
+/* Subtítulo de la sección con buen contraste */
+.subtitulo-tiktok {
+    color: #a0aec0 !important;
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+/* Tarjeta contenedora flotante elegante */
+.video-card {
+    background-color: #2b3035 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+    padding: 20px 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.video-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Insignias de Categoría de Video */
+.category-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.badge-practica { 
+    background-color: rgba(13, 110, 253, 0.2) !important; 
+    color: #6ea8fe !important; 
+    border: 1px solid rgba(13, 110, 253, 0.4);
+}
+
+.badge-especial { 
+    background-color: rgba(220, 53, 69, 0.2) !important; 
+    color: #ea868f !important; 
+    border: 1px solid rgba(220, 53, 69, 0.4);
+}
+
+.badge-pregon { 
+    background-color: rgba(25, 135, 84, 0.2) !important; 
+    color: #75b798 !important; 
+    border: 1px solid rgba(25, 135, 84, 0.4);
+}
+
+/* Marco ajustado para los reproductores / videos */
+.video-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container iframe, 
+.video-container video {
+    width: 100% !important;
+    border-radius: 12px;
+    border: none;
+}
+
+/* Botón flotante de WhatsApp asegurado sin tapar texto */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+/* ====================================================== */
+<section id="registro" class=">
+/* ====================================================== */
+
+/* Tarjetas principales del formulario y la lista */
+.card-registro {
+    background-color: #2b3035 !important;
+    border: 1px solid #3a3f44 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+    color: #ffffff !important;
+}
+
+/* Etiquetas y controles del formulario */
+.form-label-custom {
+    color: #e2e8f0 !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.input-custom {
+    background-color: #1a1d20 !important;
+    border: 1px solid #495057 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 10px 14px;
+}
+
+.input-custom:focus {
+    background-color: #1a1d20 !important;
+    border-color: #0d6efd !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+}
+
+.input-custom::placeholder {
+    color: #6c757d !important;
+}
+
+/* Elementos de la Lista de Espera */
+.item-solicitud {
+    background-color: #1a1d20 !important;
+    border: 1px solid #343a40 !important;
+    border-radius: 12px !important;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.subtexto-gris {
+    color: #a0aec0 !important;
+    font-size: 0.88rem;
+}
+
+/* Botón estilizado de eliminación */
+.btn-eliminar-custom {
+    border: 1px solid #dc3545 !important;
+    color: #ea868f !important;
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-eliminar-custom:hover {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+/* ====================================================== */
+/* ESTILOS UNIFICADOS: PIE DE PÁGINA (FOOTER) Y REDES    */
+/* ====================================================== */
+
+/* Footer principal estilizado */
+.footer-dark {
+    background-color: #1a1d20 !important;
+    border-top: 1px solid #2b3035 !important;
+    color: #ffffff !important;
+    padding: 40px 0 30px 0;
+}
+
+/* Botones de redes sociales con hover suave */
+.btn-red-social {
+    border-radius: 50px !important;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+.btn-red-social:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Texto de derechos reservados */
+.copyright-text {
+    color: #6c757d !important;
+    font-size: 0.88rem;
+    margin-top: 25px;
+}
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+.img-fluid, img {
+    max-width: 100%;
+    height: auto;
+}
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="#inicio">
                     <img src="{{ url_for('static', filename='logotipo.jpeg') }}" alt="Logotipo Academia" width="40" height="40" class="d-inline-block align-text-top me-2 rounded-circle">
@@ -76,7 +476,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios y Talleres</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Categorias">Categorias</a></li>
                         <li class="nav-item"><a class="nav-link" href="#registro-estudiantes">Registro</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     </ul>
@@ -84,174 +484,693 @@
             </div>
         </nav>
     </header>
+        <main>
+            <section id="inicio" class="hero-section text-center d-flex align-items-center">
+                <div class="container">
+                    <h2 class="display-5 fw-bold text-white mb-3">Bienvenidos a nuestra Institución</h2>
+                    <p class="lead mb-4">Descubre el arte, la pasión y la tradición a través del movimiento. En nuestra academia salvaguardamos las raíces culturales de nuestra tierra mediante la danza folklórica nacional e internacional.</p>
+                    <a href="#registro-estudiantes" class="btn btn-warning btn-lg fw-bold text-dark px-4 py-2" style="border-radius: 25px;">Inscríbete Ahora</a>
+                </div>
+            </section>
 
-    <main>
-        <section id="inicio" class="hero-section text-center d-flex align-items-center">
-            <div class="container">
-                <h1 class="display-4 fw-bold mb-3">Bienvenidos a nuestra Institución</h1>
-                <p class="lead mb-4">Descubre el arte, la pasión y la tradición a través del movimiento. En nuestra academia salvaguardamos las raíces culturales de nuestra tierra mediante la danza folklórica nacional e internacional.</p>
-                <a href="#contacto" class="btn btn-warning btn-lg fw-bold text-white px-4 py-2">Inscríbete Ahora</a>
-            </div>
-        </section>
-
-        <div class="container my-5 py-4">
-            <!-- Quiénes Somos -->
-            <section id="quienes-somos" class="mb-5 bg-white p-4 rounded shadow-sm">
-                <div class="row align-items-center">
-                    <div class="col-md-6 mb-4 mb-md-0">
-                        <h2 class="section-title">Quiénes Somos</h2>
-                        <p class="text-justify lead-sm">
-                            La Academia de Baile Ritmo y Folklore es una institución artística y cultural dedicada a la formación integral de bailarines en el ámbito de las danzas tradicionales. Nuestro proyecto nació con el firme propósito de rescatar, preservar y difundir la riqueza de nuestra identidad folklórica, ofreciendo un espacio donde niños, jóvenes y adultos pueden desarrollar sus habilidades dancísticas, rítmicas y corporales.
+        <!-- ========================================== -->
+<section id="quienes-somos"></section>
+<!-- ========================================== -->
+<section id="nosotros" class="py-5">
+    <div class="container">
+        <div class="card card-quienes-somos rounded-4 p-4 p-md-5 overflow-hidden">
+            <div class="row align-items-center g-4">
+                
+                <!-- Columna Texto -->
+                <div class="col-lg-7 text-start">
+                    <h2 class="display-6 fw-bold titulo-rojo-vibrante mb-3">Quiénes Somos</h2>
+                    <div class="pe-lg-3">
+                        <p class="fs-5 text-light opacity-90 leading-relaxed mb-3">
+                            La Academia de Baile Ritmo y Folklore es una institución artística y cultural dedicada a la formación integral de bailarines en el ámbito de las danzas tradicionales.
+                        </p>
+                        <p class="fs-6 text-light opacity-75 mb-0">
+                            Nuestro proyecto nació con el firme propósito de rescatar, preservar y difundir la riqueza de nuestra identidad folklórica, ofreciendo un espacio donde niños, jóvenes y adultos pueden desarrollar sus habilidades dancísticas, rítmicas y corporales.
                         </p>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="{{ url_for('static', filename='zuleta.jpeg') }}" alt="Presentación de Danza" class="img-fluid rounded shadow" style="max-height: 350px; width: 100%; object-fit: cover;">
+                </div>
+
+                <!-- Columna Imagen -->
+                <div class="col-lg-5">
+                    <div class="rounded-3 overflow-hidden shadow-lg border border-secondary border-opacity-25">
+                        <img src="{{ url_for('static', filename='zuleta.jpeg') }}" class="img-fluid w-100 object-fit-cover" alt="Grupo Folklórico">
                     </div>
                 </div>
-            </section>
 
-            <!-- SERVICIOS DINÁMICOS JINJA2 (Semana 10) -->
-            <section id="servicios" class="mb-5">
-                <h2 class="section-title text-center">Nuestros Servicios y Talleres</h2>
-                <div class="row g-4">
-                    {% for item in servicios %}
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <div class="fs-1 {{ item.color }} mb-2">{{ item.icono }}</div>
-                                <h5 class="card-title fw-bold">{{ item.titulo }}</h5>
-                                <p class="card-text text-muted small">{{ item.desc }}</p>
-                            </div>
-                        </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+           <div class="row g-4 justify-content-center">
+    <!-- Cursos Permanentes -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 card-dark-floating rounded-4 p-4 text-center">
+            <div class="fs-1 text-warning mb-3">
+                <i class="fas fa-users"></i>
+            </div>
+            <h5 class="fw-bold text-white mb-2">Cursos Permanentes</h5>
+            <p class="small mb-0">Clases continuas de danza folklórica tradicional para todas las edades.</p>
+        </div>
+    </div>
+
+    <!-- Vacacionales -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 card-dark-floating rounded-4 p-4 text-center">
+            <div class="fs-1 text-danger mb-3">
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="fw-bold text-white mb-2">Vacacionales</h5>
+            <p class="small mb-0">Talleres intensivos de expresión dancística, ritmo y coordinación corporal.</p>
+        </div>
+    </div>
+
+    <!-- Contrataciones -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 card-dark-floating rounded-4 p-4 text-center">
+            <div class="fs-1 text-warning mb-3">
+                <i class="fas fa-file-signature"></i>
+            </div>
+            <h5 class="fw-bold text-white mb-2">Contrataciones</h5>
+            <p class="small mb-0">Presentaciones artísticas coreográficas para pregones de fiestas y eventos.</p>
+        </div>
+    </div>
+
+    <!-- Montajes -->
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 card-dark-floating rounded-4 p-4 text-center">
+            <div class="fs-1 text-danger mb-3">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <h5 class="fw-bold text-white mb-2">Montajes</h5>
+            <p class="small mb-0">Diseño y producción de coreografías exclusivas para instituciones públicas o privadas.</p>
+        </div>
+    </div>
+</div>
+           <!-- ========================================== -->
+<!-- SECCIÓN: NUESTRO EQUIPO DE INSTRUCTORES -->
+<!-- ========================================== -->
+<section id="instructores" class="py-5">
+    <div class="container">
+        
+        <!-- Encabezado -->
+        <div class="text-center mb-5">
+            <h3 class="display-6 fw-bold text-white mb-2">Nuestro Equipo de Instructores</h3>
+            <p class="text-light opacity-75">Profesionales apasionados por la enseñanza y la preservación cultural.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Edison Borrallos -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card h-100 card-instructor rounded-4 text-center">
+                    <div class="img-instructor-container">
+                        <img src="{{ url_for('static', filename='instructor_1.jpg') }}" alt="Edison Borrallos">
                     </div>
-                    {% endfor %}
-                </div>
-            </section>
-
-            <!-- REGISTRO CON FLASK-WTF Y CSRF (Semana 11) -->
-            <section id="registro-estudiantes" class="mb-5 bg-white p-4 rounded shadow-sm">
-                <h2 class="section-title text-center">Bolsa de Solicitudes y Registro de Alumnos</h2>
-                
-                <div class="row g-4">
-                    <div class="col-md-5">
-                        <div class="p-3 border rounded bg-light">
-                            <h4 class="h5 mb-3 fw-bold text-dark">Registrar Nueva Solicitud</h4>
-
-                            <form method="POST" action="">
-                                <!-- Token CSRF Obligatorio (Semana 11) -->
-                                {{ form_reg.hidden_tag() }}
-                                <input type="hidden" name="btn_registro" value="1">
-
-                                <div class="mb-3">
-                                    {{ form_reg.nombre.label(class="form-label small fw-bold") }}
-                                    {{ form_reg.nombre(class="form-control", placeholder="Ej. Carlos Tipán") }}
-                                    {% for error in form_reg.nombre.errors %}
-                                        <div class="text-danger small">{{ error }}</div>
-                                    {% endfor %}
-                                </div>
-
-                                <div class="mb-3">
-                                    {{ form_reg.categoria.label(class="form-label small fw-bold") }}
-                                    {{ form_reg.categoria(class="form-select") }}
-                                    {% for error in form_reg.categoria.errors %}
-                                        <div class="text-danger small">{{ error }}</div>
-                                    {% endfor %}
-                                </div>
-
-                                <div class="mb-3">
-                                    {{ form_reg.descripcion.label(class="form-label small fw-bold") }}
-                                    {{ form_reg.descripcion(class="form-control", rows="3", placeholder="Ej. Nivel principiante, requiere horario vespertino.") }}
-                                    {% for error in form_reg.descripcion.errors %}
-                                        <div class="text-danger small">{{ error }}</div>
-                                    {% endfor %}
-                                </div>
-
-                                {{ form_reg.submit(class="btn btn-primary w-100 fw-bold") }}
-                            </form>
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="nombre-instructor">Edison Borrallos</h5>
                         </div>
-                    </div>
-
-                    <!-- LISTA MOSTRADA CON JINJA2 (Semana 10) -->
-                    <div class="col-md-7">
-                        <div class="p-3 border rounded h-100 d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="h5 m-0 fw-bold text-dark">Lista de Espera Activa</h4>
-                                <span class="badge bg-danger p-2 fs-6">Total registros: {{ total_registros }}</span>
-                            </div>
-                            
-                            <div class="row g-2 overflow-y-auto" style="max-height: 320px;">
-                                {% for sol in solicitudes %}
-                                <div class="col-12">
-                                    <div class="p-3 border rounded bg-white shadow-sm">
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="fw-bold mb-1">#{{ sol.id }} - {{ sol.nombre }}</h6>
-                                            <span class="badge bg-primary">{{ sol.categoria }}</span>
-                                        </div>
-                                        <p class="mb-0 text-muted small">{{ sol.descripcion }}</p>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
+                        <div class="mt-3">
+                            <span class="badge badge-cargo badge-director">Director, Instructor y Coreógrafo</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- CONTACTO CON WTFORMS (Semana 11) -->
-            <section id="contacto" class="mb-4">
-                <div class="row g-4">
-                    <div class="col-lg-7">
-                        <div class="bg-white p-4 rounded shadow-sm h-100">
-                            <h3 class="h4 mb-3 fw-bold text-dark">Envíanos un Mensaje</h3>
-                            <form method="POST" action="">
-                                {{ form_contacto.hidden_tag() }}
-                                <div class="mb-3">
-                                    {{ form_contacto.nombre.label(class="form-label small fw-bold") }}
-                                    {{ form_contacto.nombre(class="form-control", placeholder="Ej. Juan Pérez") }}
-                                </div>
-                                <div class="mb-3">
-                                    {{ form_contacto.email.label(class="form-label small fw-bold") }}
-                                    {{ form_contacto.email(class="form-control", placeholder="Ej. juan@correo.com") }}
-                                </div>
-                                <div class="mb-3">
-                                    {{ form_contacto.asunto.label(class="form-label small fw-bold") }}
-                                    {{ form_contacto.asunto(class="form-control", placeholder="Ej. Inscripción curso vacacional") }}
-                                </div>
-                                <div class="mb-3">
-                                    {{ form_contacto.mensaje.label(class="form-label small fw-bold") }}
-                                    {{ form_contacto.mensaje(class="form-control", rows="4", placeholder="Escribe tus dudas aquí...") }}
-                                </div>
-                                {{ form_contacto.submit(class="btn btn-danger w-100 fw-bold") }}
-                            </form>
+            <!-- Kerly Ayala -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card h-100 card-instructor rounded-4 text-center">
+                    <div class="img-instructor-container">
+                        <img src="{{ url_for('static', filename='instructor_2.jpg') }}" alt="Kerly Ayala">
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="nombre-instructor">Kerly Ayala</h5>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge badge-cargo badge-director">Instructora y Coreógrafa</span>
                         </div>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="bg-dark text-white p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between">
+                </div>
+            </div>
+
+            <!-- Justin Aguirre -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card h-100 card-instructor rounded-4 text-center">
+                    <div class="img-instructor-container">
+                        <img src="{{ url_for('static', filename='instructor_3.jpg') }}" alt="Justin Aguirre">
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="nombre-instructor">Justin Aguirre</h5>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge badge-cargo badge-instructor">Instructor y Coreógrafo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adriana Villa -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="card h-100 card-instructor rounded-4 text-center">
+                    <div class="img-instructor-container">
+                        <img src="{{ url_for('static', filename='instructor_4.jpg') }}" alt="Adriana Villa">
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="nombre-instructor">Adriana Villa</h5>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge badge-cargo badge-infantil">Instructora y Coreógrafa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- SECCIÓN CATEGORIAS -->
+<section id="Categorias" class="py-5">
+    <div class="container">
+        
+        <!-- CATEGORÍA INFANTIL -->
+        <div class="card card-agrupacion mb-5">
+            <div class="p-3 bg-dark border-bottom border-secondary">
+                <h3 class="titulo-categoria text-warning">Categoría Infantil</h3>
+            </div>
+            <div id="carruselInfantil" class="carousel slide carousel-agrupacion" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselInfantil" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carruselInfantil" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carruselInfantil" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carruselInfantil" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carruselInfantil" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#carruselInfantil" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='infantil_1.jpg') }}" alt="Categoría Infantil 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='infantil_2.jpg') }}" alt="Categoría Infantil 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='infantil_3.jpg') }}" alt="Categoría Infantil 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='infantil_4.jpg') }}" alt="Categoría Infantil 4">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='infantil_5.jpg') }}" alt="Categoría Infantil 5">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='infantil_6.jpg') }}" alt="Categoría Infantil 6">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselInfantil" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselInfantil" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- CATEGORÍA JUVENIL -->
+        <div class="card card-agrupacion mb-5">
+            <div class="p-3 bg-dark border-bottom border-secondary">
+                <h3 class="titulo-categoria text-danger">Categoría Juvenil</h3>
+            </div>
+            <div id="carruselJuvenil" class="carousel slide carousel-agrupacion" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselJuvenil" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carruselJuvenil" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carruselJuvenil" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carruselJuvenil" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carruselJuvenil" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#carruselJuvenil" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='juvenil_1.jpg') }}" alt="Categoría Juvenil 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='juvenil_2.jpg') }}" alt="Categoría Juvenil 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='juvenil_3.jpg') }}" alt="Categoría Juvenil 3">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='juvenil_4.jpg') }}" alt="Categoría Juvenil 4">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='juvenil_5.jpg') }}" alt="Categoría Juvenil 5">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='juvenil_6.jpg') }}" alt="Categoría Juvenil 6">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselJuvenil" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselJuvenil" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ========================================== -->
+<!-- SECCIÓN: ENSAYOS Y PRESENTACIONES (TIKTOK) -->
+<!-- ========================================== -->
+<section id="ensayos" class="py-5">
+    <div class="container">
+        
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5">
+            <h3 class="display-6 fw-bold text-white mb-2">Ensayos y Presentaciones en Acción</h3>
+            <p class="subtitulo-tiktok">Disfruta de nuestros videos y coreografías directamente desde nuestro canal de TikTok.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            
+            <!-- VIDEO 1: ENSAYO Y PRÁCTICA -->
+            <div class="col-md-6 col-lg-4">
+                <div class="video-card">
+                    <span class="category-badge badge-practica">
+                        <i class="fas fa-running me-1"></i> Ensayo y Práctica
+                    </span>
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@baileritmoyfolklore/video/7657752813132418325" data-video-id="7657752813132418325" style="max-width: 605px; min-width: 325px;">
+                            <section>
+                                <a target="_blank" title="@baileritmoyfolklore" href="https://www.tiktok.com/@baileritmoyfolklore?refer=embed">@baileritmoyfolklore</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDEO 2: PRESENTACIÓN ESPECIAL -->
+            <div class="col-md-6 col-lg-4">
+                <div class="video-card">
+                    <span class="category-badge badge-especial">
+                        <i class="fas fa-star me-1"></i> Presentación Especial
+                    </span>
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@baileritmoyfolklore/video/7692528856082763028" data-video-id="7692528856082763028" style="max-width: 605px; min-width: 325px;">
+                            <section>
+                                <a target="_blank" title="@baileritmoyfolklore" href="https://www.tiktok.com/@baileritmoyfolklore?refer=embed">@baileritmoyfolklore</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDEO 3: EVENTO Y PREGÓN CULTURAL -->
+            <div class="col-md-6 col-lg-4">
+                <div class="video-card">
+                    <span class="category-badge badge-pregon">
+                        <i class="fas fa-drum me-1"></i> Evento y Pregón Cultural
+                    </span>
+                    <div class="video-container">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@baileritmoyfolklore/video/7678861965166415125" data-video-id="7678861965166415125" style="max-width: 605px; min-width: 325px;">
+                            <section>
+                                <a target="_blank" title="@baileritmoyfolklore" href="https://www.tiktok.com/@baileritmoyfolklore?refer=embed">@baileritmoyfolklore</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Script oficial de TikTok necesario para renderizar los reproductores -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<!-- ========================================== -->
+<!-- PIE DE PÁGINA Y REDES SOCIALES OFICIALES -->
+<!-- ========================================== -->
+<footer class="bg-dark text-white py-4 mt-5 rounded-top">
+    <div class="container text-center">
+        <h5 class="fw-bold mb-3">Síguenos en Nuestras Redes Oficiales</h5>
+        <div class="d-flex justify-content-center gap-3 flex-wrap align-items-center">
+            
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@baileritmoyfolklore?_r=1&_t=ZS-9AHNWDW1nlN" target="_blank" class="btn btn-outline-light d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm">
+                <span class="d-flex align-items-center justify-content-center bg-white text-dark rounded-circle" style="width: 28px; height: 28px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5c.28 0 .546.022.806.062V8.12A3.001 3.001 0 1 0 9 11V0z"/>
+                    </svg>
+                </span>
+                <span class="fw-semibold">TikTok</span>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/19DuoGaSet/" target="_blank" class="btn btn-primary d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm">
+                <span class="d-flex align-items-center justify-content-center bg-white text-primary rounded-circle" style="width: 28px; height: 28px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                </span>
+                <span class="fw-semibold">Facebook</span>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/593980023594" target="_blank" class="btn btn-success d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm">
+                <span class="d-flex align-items-center justify-content-center bg-white text-success rounded-circle" style="width: 28px; height: 28px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.61-1.47-.16-.384-.325-.332-.445-.338-.114-.007-.247-.007-.38-.007s-.348.05-.53.248c-.182.198-.697.682-.697 1.663 0 .982.714 1.931 1.08 2.062.1.133 1.405 2.146 3.404 3.01.476.206.848.328 1.138.421.478.152.913.13 1.257.079.384-.058 1.17-.478 1.335-.94.165-.463.165-.858.115-.94-.05-.083-.183-.133-.38-.232z"/>
+                    </svg>
+                </span>
+                <span class="fw-semibold">WhatsApp</span>
+            </a>
+
+        </div>
+        <p class="text-muted small mt-4 mb-0">© 2026 Academia de Baile Ritmo y Folclore. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- ========================================== -->
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<!-- ========================================== -->
+<a href="https://wa.me/593980023594" class="whatsapp-float shadow-lg" target="_blank" title="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.61-1.47-.16-.384-.325-.332-.445-.338-.114-.007-.247-.007-.38-.007s-.348.05-.53.248c-.182.198-.697.682-.697 1.663 0 .982.714 1.931 1.08 2.062.1.133 1.405 2.146 3.404 3.01.476.206.848.328 1.138.421.478.152.913.13 1.257.079.384-.058 1.17-.478 1.335-.94.165-.463.165-.858.115-.94-.05-.083-.183-.133-.38-.232z"/>
+    </svg>
+</a>
+
+<!-- Estilos -->
+<style>
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+</style>
+
+         </style>
+
+<section id="quienes-somos"></section>
+    <div class="container">
+        
+        <section id="registro-estudiantes" class="py-5" style="background-color: #1a1d20;">
+    <div class="container">
+        <!-- Título principal de la sección -->
+        <div class="text-center mb-5">
+            <h3 class="display-6 fw-bold text-white mb-2">Bolsa de Solicitudes y Registro de Alumnos</h3>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- COLUMNA IZQUIERDA: FORMULARIO DE REGISTRO -->
+            <div class="col-lg-6">
+                <div class="card card-registro p-4 h-100 bg-dark text-white border-secondary shadow">
+                    <h4 class="fw-bold text-white mb-4">Registrar Nueva Solicitud</h4>
+                    
+                    <form action="/agregar_solicitud" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label text-light">Nombre del Postulante</label>
+                            <input type="text" name="nombre" class="form-control bg-secondary text-white border-0" placeholder="Ej. Carlos Tipán" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-light">Categoría de Taller</label>
+                            <select name="categoria" class="form-select bg-secondary text-white border-0" required>
+                                <option value="" selected disabled>Seleccione una opción...</option>
+                                <option value="Vacacionales">Vacacionales</option>
+                                <option value="Infantil">Infantil</option>
+                                <option value="Juvenil">Juvenil</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label text-light">Observación / Descripción</label>
+                            <textarea name="observacion" class="form-control bg-secondary text-white border-0" rows="3" placeholder="Ej. Nivel principiante, requiere horario vespertino."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" style="border-radius: 10px;">
+                            <i class="fas fa-plus-circle me-1"></i> Agregar a la Lista
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: LISTA DE ESPERA ACTIVA -->
+            <div class="col-lg-6">
+                <div class="card card-registro p-4 h-100 bg-dark text-white border-secondary shadow">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold text-white mb-0">Lista de Espera Activa</h4>
+                        <span class="badge bg-danger fs-6 px-3 py-2">Total registros: 1</span>
+                    </div>
+
+                    <!-- TARJETA DE ALUMNO REGISTRADO -->
+                    <div class="item-solicitud p-3 rounded bg-secondary bg-opacity-25 border border-secondary">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
                             <div>
-                                <h3 class="h4 mb-4 fw-bold text-warning">Datos de Contacto</h3>
-                                <p class="mb-2"><strong>📧 Correo Electrónico:</strong> <br>borrallos16@gmail.com</p>
-                                <p class="mb-2"><strong>📞 Teléfono:</strong> <br>0980023594</p>
-                                <hr class="bg-secondary">
-                                <h4 class="h6 fw-bold text-warning mb-2">Direcciones de atención:</h4>
-                                <ul class="ps-3 small text-light">
-                                    <li class="mb-2">Barrio La Merced, Parroquia de San Roque, Cantón Antonio Ante.</li>
-                                    <li>Barrio La Delicia, Parroquia de San Roque, Cantón Antonio Ante.</li>
-                                </ul>
+                                <span class="badge bg-secondary me-2">#4</span>
+                                <strong class="fs-5 text-white">Tatiana Aguilar</strong>
                             </div>
+                            <span class="badge bg-primary px-3 py-2">Vacacionales</span>
                         </div>
+                        
+                        <div class="mb-3">
+                            <span class="text-muted d-block fw-semibold small">Descripción / Observación:</span>
+                            <p class="text-white mb-0">Los horario</p>
+                        </div>
+
+                        <button class="btn btn-outline-danger w-100 py-2">
+                            <i class="fas fa-trash-alt me-2"></i> Eliminar Registro
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+         <!-- ========================================== -->
+<footer id="contacto"></footer>
+<!-- ========================================== -->
+<section id="datos-contacto" class="my-5 p-4 bg-dark text-white rounded shadow-lg">
+    <div class="text-center mb-4">
+        <h3 class="fw-bold text-warning">Datos de Contacto y Ubicaciones</h3>
+        <p class="text-white-50 small">Encuentra nuestra información oficial y visita nuestras sedes en San Roque.</p>
+    </div>
+
+    <!-- TARJETAS DE INFORMACIÓN GENERAL -->
+    <div class="row g-3 text-center mb-4">
+        <div class="col-md-6">
+            <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary h-100 d-flex flex-column justify-content-center align-items-center">
+                <span class="fs-4 mb-1">✉️</span>
+                <strong class="text-warning">Correo Electrónico:</strong>
+                <span class="text-light mt-1">borrallos16@gmail.com</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary h-100 d-flex flex-column justify-content-center align-items-center">
+                <span class="fs-4 mb-1">📞</span>
+                <strong class="text-warning">Teléfono / WhatsApp:</strong>
+                <span class="text-light mt-1">0980023594</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TÍTULO DE DIRECCIONES -->
+    <h5 class="fw-bold text-warning mb-3 text-center">Direcciones de Atención:</h5>
+
+    <!-- MAPAS LADO A LADO A TODO EL ANCHO -->
+    <div class="row g-4">
+        
+        <!-- Sede 1: Barrio La Merced -->
+        <div class="col-md-6">
+            <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary h-100 d-flex flex-column justify-content-between">
+                <p class="small text-white fw-semibold mb-2">📍 Barrio La Merced, Parroquia de San Roque, Cantón Antonio Ante.</p>
+                <a href="https://www.google.com/maps/place/0%C2%B019'09.9%22N+78%C2%B013'50.1%22W/@0.3194153,-78.2305774,17z" target="_blank" class="d-block position-relative rounded overflow-hidden text-decoration-none shadow-sm">
+                    <iframe src="https://maps.google.com/maps?q=0.3194153,-78.2305774&z=16&output=embed" 
+                            width="100%" height="160" style="border:0; pointer-events: none;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25 d-flex align-items-center justify-content-center text-white small fw-bold">
+                        <span class="btn btn-sm btn-danger rounded-pill shadow-sm px-3">
+                            📍 Abrir Sede La Merced en Google Maps
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sede 2: Barrio La Delicia -->
+        <div class="col-md-6">
+            <div class="p-3 bg-secondary bg-opacity-25 rounded border border-secondary h-100 d-flex flex-column justify-content-between">
+                <p class="small text-white fw-semibold mb-2">📍 Barrio La Delicia, Parroquia de San Roque, Cantón Antonio Ante.</p>
+                <a href="https://www.google.com/maps/place/0%C2%B017'59.7%22N+78%C2%B014'05.5%22W/@0.2999246,-78.2348603,17z" target="_blank" class="d-block position-relative rounded overflow-hidden text-decoration-none shadow-sm">
+                    <iframe src="https://maps.google.com/maps?q=0.2999246,-78.2348603&z=16&output=embed" 
+                            width="100%" height="160" style="border:0; pointer-events: none;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25 d-flex align-items-center justify-content-center text-white small fw-bold">
+                        <span class="btn btn-sm btn-danger rounded-pill shadow-sm px-3">
+                            📍 Abrir Sede La Delicia en Google Maps
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+   <!-- ========================================== -->
+<!-- ========================================== -->
+<!-- SECCIÓN: TESTIMONIOS Y OPINIONES -->
+<!-- ========================================== -->
+<section id="testimonios" class="py-5">
+    <div class="container">
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-5">
+            <h3 class="fw-bold text-warning display-6 mb-2">Lo que opina nuestra comunidad</h3>
+            <p class="text-light opacity-75">Experiencias de alumnos y familias que forman parte de la academia.</p>
+        </div>
+
+        <!-- Tarjetas flotantes individuales -->
+        <div class="row g-4 justify-content-center">
+            <!-- Testimonio 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 card-dark-floating rounded-4 p-4 text-start">
+                    <div class="fs-1 text-warning mb-2">“</div>
+                    <p class="fst-italic text-light mb-4">
+                        "Excelente formación artística para mis hijos. La dedicación con la que enseñan la cultura es admirable."
+                    </p>
+                    <div class="mt-auto border-top border-secondary pt-3">
+                        <h6 class="fw-bold text-warning mb-0">— Familia Villalba</h6>
+                        <small class="text-muted">Integrantes del Taller Vacacional</small>
                     </div>
                 </div>
-            </section>
-        </div>
-    </main>
+            </div>
 
-    <footer class="text-center py-3 mt-auto">
-        <div class="container">
-            <p class="mb-0 small">© 2026 Academia de Baile Ritmo y Folklore. Todos los derechos reservados.</p>
-            <p class="mb-0 text-muted" style="font-size: 0.75rem;">Desarrollado para la Universidad Estatal Amazónica</p>
-        </div>
-    </footer>
+            <!-- Testimonio 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 card-dark-floating rounded-4 p-4 text-start">
+                    <div class="fs-1 text-danger mb-2">“</div>
+                    <p class="fst-italic text-light mb-4">
+                        "Un espacio genial donde el profesionalismo y el amor por la danza folklórica se sienten en cada ensayo."
+                    </p>
+                    <div class="mt-auto border-top border-secondary pt-3">
+                        <h6 class="fw-bold text-danger mb-0">— Carlos Tipán</h6>
+                        <small class="text-muted">Alumno de Cursos Permanentes</small>
+                    </div>
+                </div>
+            </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Testimonio 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 card-dark-floating rounded-4 p-4 text-start">
+                    <div class="fs-1 text-warning mb-2">“</div>
+                    <p class="fst-italic text-light mb-4">
+                        "Los montajes coreográficos para los pregones son impecables. Recomendados totalmente para eventos."
+                    </p>
+                    <div class="mt-auto border-top border-secondary pt-3">
+                        <h6 class="fw-bold text-warning mb-0">— María Morales</h6>
+                        <small class="text-muted">Coordinadora de Eventos</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Estilo suave al pasar el mouse -->
+<style>
+.hover-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 193, 7, 0.7) !important;
+}
+</style>
+<!-- ========================================== -->
+<!-- SECCIÓN: PIE DE PÁGINA Y REDES SOCIALES    -->
+<!-- ========================================== -->
+<footer class="footer-dark text-center">
+    <div class="container">
+        
+        <!-- Título redes sociales -->
+        <h4 class="fw-bold text-white mb-4">Síguenos en Nuestras Redes Oficiales</h4>
+        
+        <!-- Botones de redes sociales -->
+        <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+            <a href="https://www.tiktok.com/@baileritmoyfolklore" target="_blank" class="btn btn-outline-light btn-red-social">
+                <i class="fab fa-tiktok me-2"></i> TikTok
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" class="btn btn-primary btn-red-social" style="background-color: #1877f2; border: none;">
+                <i class="fab fa-facebook-f me-2"></i> Facebook
+            </a>
+            <a href="https://wa.me/" target="_blank" class="btn btn-success btn-red-social" style="background-color: #25d366; border: none;">
+                <i class="fab fa-whatsapp me-2"></i> WhatsApp
+            </a>
+        </div>
+
+        <hr class="border-secondary opacity-25 my-4">
+
+        <!-- Texto de Copyright -->
+        <p class="copyright-text mb-0">
+            © 2026 Academia de Baile Ritmo y Folklore. Todos los derechos reservados.
+        </p>
+
+    </div>
+</footer>
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<a href="https://wa.me/593980023594?text=Hola,%20deseo%20más%20información%20sobre%20las%20clases%20de%20baile" 
+   target="_blank" 
+   class="btn btn-success rounded-circle position-fixed bottom-0 end-0 m-4 p-3 shadow-lg fs-4" 
+   style="z-index: 1000;" 
+   title="Contáctanos por WhatsApp">
+   💬
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Inicializa todos los carruseles de la página automáticamente
+            var carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(function (carousel) {
+                new bootstrap.Carousel(carousel, {
+                    interval: 3000,
+                    ride: 'carousel',
+                    touch: true
+                });
+            });
+        });
+    </script>
 </body>
 </html>
